@@ -1,0 +1,32 @@
+#outer-flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+.flex {
+  display: flex;
+
+  flex-direction: column;
+}
+#temp-settings {
+  padding: 50px;
+}
+#title {
+  display: flex;
+  justify-content: center;
+}
+#task-settings {
+  padding: 50px;
+}
+#LED-settings {
+  display: flex;
+  padding: 50px;
+}
+#Red-light {
+  padding: 20px;
+}
+#Blue-Light {
+  padding: 20px;
+}
+#Music-settings {
+  padding: 50px;
+}

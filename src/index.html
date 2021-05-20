@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="title-countdown">Smart Desk</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="title"> 
+      <h1>Smart Desk</h1>
+    </div>
+
+    <div id= outer-flex>
+
+    <div class= "flex">
+    <h3>Temperature settings</h3>
+    <div id="temp-settings">
+      <label>Current Temp:</label>
+      <label id = "temp"></label><br>
+      <label>Enter desired temperature</label>
+      <input id ="Wanted_temp" type="text">
+      <button id ="SubmitTemp">Submit</button><br>
+      <button id ="tempBut">Turn Fan Off</button>
+      <button id ="tempButON">Turn Fan On</button>
+    </div>
+    <h3>Tasks</h3>
+    <div id ="task-settings">
+      <input type="text" id="task">
+      <button id="task button">Add Task</button>
+      <button id="Del button">Delete Task</button>
+    </div>
+    <h3>Lights</h3>
+    <div id="LED-settings">
+      <div id ="Red-light">
+      <label>Red light</label><br>
+      <input type="radio" id="Ron" name="RLED" value="male">
+      <label for="RLED">On</label><br>
+      <input type="radio" id="ROff" name="RLED" value="male">
+      <label for="RLED">Off</label><br>
+    </div>
+    <div id = "Blue-Light">
+      <label>Blue light</label><br>
+      <input type="radio"  name="BLED" value="male">
+      <label for="RLED">On</label><br>
+      <input type="radio"  name="BLED" value="male">
+      <label for="RLED">Off</label><br>
+    </div>
+    </div>
+  </div>
+    <div class= "flex"> 
+    <h3>Music</h3>
+    <div id= "Music-settings">
+      <label>Currently playing:</label>
+      <span id="song title">Song3</span>
+      <audio id ="Song"></audio>
+      
+    </div>
+    <h3>Security settings</h3>
+    <div id="Security-setting">
+      <span>Security Alert</span>
+      <button id ="sec-Off">Turn Off</button>
+      <span id ="alarm"></span>
+    </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script src = "main.js"></script>
+  </body>
+<html>
