@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
 
-  <body>
+  <body id = "body">
     <div id="title"> 
       <h1>Smart Desk</h1>
     </div>
@@ -19,9 +19,6 @@
     <div id="temp-settings">
       <label>Current Temp:</label>
       <label id = "temp"></label><br>
-      <label>Enter desired temperature</label>
-      <input id ="Wanted_temp" type="text">
-      <button id ="SubmitTemp">Submit</button><br>
       <button id ="tempBut">Turn Fan Off</button>
       <button id ="tempButON">Turn Fan On</button>
     </div>
@@ -29,7 +26,10 @@
     <div id ="task-settings">
       <input type="text" id="task">
       <button id="task button">Add Task</button>
-      <button id="Del button">Delete Task</button>
+      <button id="Del button">Delete Task</button><br>
+      <label id ="task0"> Task 0: chill </label><br>
+      <label id ="task1"> Task 1: chill </label><br>
+      <label id ="task2"> Task 2: chill </label><br>
     </div>
     <h3>Lights</h3>
     <div id="LED-settings">
@@ -42,10 +42,10 @@
     </div>
     <div id = "Blue-Light">
       <label>Blue light</label><br>
-      <input type="radio"  name="BLED" value="male">
-      <label for="RLED">On</label><br>
-      <input type="radio"  name="BLED" value="male">
-      <label for="RLED">Off</label><br>
+      <input type="radio" id = "Bon" name="BLED" value="male">
+      <label for="BLED">On</label><br>
+      <input type="radio" id = "Boff" name="BLED" value="male">
+      <label for="BLED">Off</label><br>
     </div>
     </div>
   </div>
@@ -60,8 +60,9 @@
     <h3>Security settings</h3>
     <div id="Security-setting">
       <span>Security Alert</span>
+      <button id ="sec-on">Turn On</button>
       <button id ="sec-Off">Turn Off</button>
-      <span id ="alarm"></span>
+
     </div>
 
     </div>

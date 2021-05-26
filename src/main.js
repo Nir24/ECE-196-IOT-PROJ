@@ -25,14 +25,6 @@ tempButON.addEventListener("click", function () {
   FAN_ref.set(1);
 });
 
-var submitTemp = document.getElementById("SubmitTemp");
-var WTEMP_ref = database.ref("WTEMP");
-submitTemp.addEventListener("click", function () {
-  let wanted_temp = document.getElementById("Wanted_temp");
-  WTEMP_ref.set(Number(wanted_temp.value));
-  wanted_temp.value = null;
-});
-//database.ref("temp").set(10);
 var temp_ref = database.ref("temp");
 temp_ref.on("value", (snapshot) => {
   const data = snapshot.val();
@@ -42,37 +34,62 @@ temp_ref.on("value", (snapshot) => {
 });
 
 //Add tasks to database
-var taskArr = [];
+var taskArr = ["chill", "chill", "chill"];
 var TodoButton = document.getElementById("task button");
+var index = 0;
 
 TodoButton.addEventListener("click", function () {
-  var Task = document.getElementById("task");
-  var TODO_ref = database.ref("TODO/" + "TASK" + taskArr.length);
-  TODO_ref.set(Task.value);
-  taskArr.push(Task.value);
-  Task.value = null;
+  if (index != 2) {
+    var Task = document.getElementById("task");
+    for (let i = 0; i < 3; i++) {
+      if (taskArr[i] == "chill") {
+        index = i;
+        break;
+      }
+    }
+    var tasklabel = document.getElementById("task" + index);
+    tasklabel.innerText = "Task 1: " + Task.value;
+    var TODO_ref = database.ref("TODO/" + "TASK" + index);
+    TODO_ref.set(Task.value);
+    taskArr[index] = Task.value;
+    print(taskArr);
+    Task.value = null;
+  }
 });
+
 //remove tasks from database
 var delButton = document.getElementById("Del button");
 delButton.addEventListener("click", function () {
-  TODO_ref = database.ref("TODO/" + "TASK" + taskArr.length);
-  if (taskArr.length != 0) {
-    TODO_ref.remove();
-  } else {
-    TODO_ref.set(0);
+  TODO_ref = database.ref("TODO/" + "TASK" + index);
+  TODO_ref.set("chill");
+  taskArr[index] = "chill";
+  var tasklabel = document.getElementById("task" + index);
+  tasklabel.innerText = "Task " + index + ": chill";
+  if (index > 0) {
+    index = index - 1;
   }
-  taskArr.pop();
 });
+
 // lights
 let RLEDOn = document.getElementById("Ron");
 let RLEDOff = document.getElementById("ROff");
 let RLED_ref = database.ref("RLED");
+let BLEDOn = document.getElementById("Bon");
+let BLEDOff = document.getElementById("Boff");
+let BLED_ref = database.ref("BLED");
 RLEDOn.addEventListener("click", function () {
   RLED_ref.set(1);
 });
 RLEDOff.addEventListener("click", function () {
   RLED_ref.set(0);
 });
+BLEDOn.addEventListener("click", function () {
+  BLED_ref.set(1);
+});
+BLEDOff.addEventListener("click", function () {
+  BLED_ref.set(0);
+});
+
 //Music
 let MUSIC_ref = database.ref("MUSIC");
 let musicName = document.getElementById("song title");
@@ -91,20 +108,30 @@ MUSIC_ref.on("value", (snapshot) => {
       music.play();
       break;
     case 2:
-      music.src = "./Music/All.mp3";
+      music.src = "./Music/All1.mp3";
       musicName.innerText = "All the time";
       music.play();
       break;
   }
 });
 //Security
+let alarmOn = document.getElementById("sec-on");
+let INTR_ref = database.ref("INTR");
 let SECURITY_ref = database.ref("SECURITY");
-let alarm = document.getElementById("alarm");
-SECURITY_ref.on("value", (snapshot) => {
+alarmOn.addEventListener("click", function () {
+  SECURITY_ref.set(1);
+});
+let alarmOff = document.getElementById("sec-Off");
+alarmOff.addEventListener("click", function () {
+  SECURITY_ref.set(0);
+  INTR_ref.set(0);
+});
+
+INTR_ref.on("value", (snapshot) => {
   const data = snapshot.val();
   if (data == 1) {
-    alarm.innerText = "INTRUDER";
+    document.getElementById("body").style.backgroundColor = "Red";
   } else {
-    alarm.innerText = "";
+    document.getElementById("body").style.backgroundColor = "white";
   }
 });
