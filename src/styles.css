@@ -30,3 +30,15 @@
 #Music-settings {
   padding: 50px;
 }
+#title {
+  background-color: cornflowerblue;
+}
+#background {
+  background-color: salmon;
+  border-width: 15px;
+  border-style: solid;
+  border-color: rebeccapurple;
+}
+.button {
+  background-color: burlywood;
+}

@@ -14,16 +14,16 @@ firebase.initializeApp(firebaseConfig);
 database = firebase.database();
 
 //Update room temp
-var tempButton = document.getElementById("tempBut");
-var FAN_ref = database.ref("FAN");
-tempButton.addEventListener("click", function () {
-  FAN_ref.set(0);
-});
-var tempButON = document.getElementById("tempButON");
-var FAN_ref = database.ref("FAN");
-tempButON.addEventListener("click", function () {
-  FAN_ref.set(1);
-});
+// var tempButton = document.getElementById("tempBut");
+// var FAN_ref = database.ref("FAN");
+// tempButton.addEventListener("click", function () {
+//   FAN_ref.set(0);
+// });
+// var tempButON = document.getElementById("tempButON");
+// var FAN_ref = database.ref("FAN");
+// tempButON.addEventListener("click", function () {
+//   FAN_ref.set(1);
+// });
 
 var temp_ref = database.ref("temp");
 temp_ref.on("value", (snapshot) => {
