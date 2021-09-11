@@ -10,8 +10,8 @@ import adafruit_character_lcd.character_lcd as characterlcd
 
 import RPi.GPIO as GPIO #pi pin input and output manipulation
 
-cred = credentials.Certificate("./ece196-sp21-proj-firebase-adminsdk-qq8qt-85223288a4.json")
-firebase_admin.initialize_app(cred,{'databaseURL' : 'https://ece196-sp21-proj-default-rtdb.firebaseio.com/'})
+cred = credentials.Certificate("")
+firebase_admin.initialize_app(cred,{""})
 
 lcd_rs = digitalio.DigitalInOut(board.D26)
 lcd_en = digitalio.DigitalInOut(board.D19)
